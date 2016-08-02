@@ -125,5 +125,12 @@ optional arguments:
 ###Grafana
 Create graphs on Grafana to query into InfluxDB.
 
-Set refresh time policy to '5s' and zomm into the required graph for better visualisation.
+Set refresh time policy to '5s' and zoom into the required graph for better visualisation.
+Add in multiple graphs and queries for multi-visualization.
 
+###Kapacitor
+Edit jvision.tick to set required boundaries to monitor parameters and alert when the conditions does not meet the normal operation of the server.
+
+Update: Kapacitor uses TICK script. Use "lambda:" formulae to add watch algorithms to monitor and report depending on the algorithm.
+
+TICK script lambda expressions: https://docs.influxdata.com/kapacitor/v0.13/tick/expr/
