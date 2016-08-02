@@ -104,7 +104,7 @@ Install Slack and login to the channel to receive messages.
 https://slack.com/downloads
 
 
-## Running the tests
+## Running the script
 "Required Jvision_decoder.py to be running and collecting data into log file".
 
 Start srcipt JvisionDecoderToInfluxdb.py to follow log file and display on grafana.
@@ -167,3 +167,34 @@ Edit jvision.tick to set required boundaries to monitor parameters and alert whe
 Update: Kapacitor uses TICK script. Use "lambda:" formulae to add watch algorithms to monitor and report depending on the algorithm.
 
 TICK script lambda expressions: https://docs.influxdata.com/kapacitor/v0.13/tick/expr/
+
+## Deployment - Docker
+
+Docker container to deploy this on a live system.
+```
+
+```
+
+## Built With
+
+* Dropwizard - Bla bla bla
+* Maven - Maybe
+* Atom - ergaerga
+
+## Contributing
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+
+## Authors
+
+* **Nishant Patil** - *Initial work*
+* **Anju Gaur** - *Project Manager*
+* **Ashok Kachana** - *Project Mentor*
+
+## License
+
+Juniper Networks Inc.
