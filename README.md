@@ -122,6 +122,39 @@ optional arguments:
   --file FILE  jvision decoder log txt_file.txt
 ```
 
+Example running script:
+```
+root@jvision-lnx01:~/influx_writer# python jvision_to_influxreadable.py --file /root/jvision_collector/jvision_log/jvision_port_3006.txt
+Writing /root/jvision_collector/jvision_log/jvision_port_3006.txt to InfluxDB
+1469729626.56
+2016-07-28T11:13:46.558000Z
+True
+1
+---------------NEW INPUT-----------------
+1469729627.56
+2016-07-28T11:13:47.558000Z
+True
+2
+---------------NEW INPUT-----------------
+1469729628.56
+2016-07-28T11:13:48.558000Z
+True
+3
+---------------NEW INPUT-----------------
+1469729629.56
+2016-07-28T11:13:49.558000Z
+True
+4
+---------------NEW INPUT-----------------
+1469729630.56
+2016-07-28T11:13:50.558000Z
+True
+5
+---------------NEW INPUT-----------------
+1469729631.56
+2016-07-28T11:13:51.557000Z
+```
+
 ###Grafana
 Create graphs on Grafana to query into InfluxDB.
 
