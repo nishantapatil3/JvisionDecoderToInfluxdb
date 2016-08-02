@@ -57,6 +57,7 @@ After Installing Grafana, InfluxDB and Kapacitor. Follow these steps to connect 
 $ sudo service influxdb start
 ```
 Web interface for influxdb: http://127.0.0.1:8083
+
 Query: CREATE DATABASE "jvision"
 
 2. Start Grafana-server. Goto Grafana web interface and add a datasource linked to influxdb "jvision" on port 8086. i.e https://127.0.0.1:8086 with database: jvision, User: root, Password: root
@@ -67,6 +68,12 @@ $ sudo service grafana-server start
 Web interface for garafan: http://127.0.0.1:3000
 
 Source: http://docs.grafana.org/datasources/influxdb/
+
 Communication to influxdb (reading and writing): http://127.0.0.1:8086
 
-3. 
+3. (Optional) Start Kapacitor. and follow bellow instaructions.
+Run the following command to create a default configuration file:
+```
+kapacitord config > kapacitor.conf
+```
+Edit kapacitor.conf in /bin/
