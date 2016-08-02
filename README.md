@@ -60,7 +60,7 @@ Web interface for influxdb: http://127.0.0.1:8083
 
 Query: CREATE DATABASE "jvision"
 
-2. Start Grafana-server. Goto Grafana web interface and add a datasource linked to influxdb "jvision" on port 8086. i.e https://127.0.0.1:8086 with database: jvision, User: root, Password: root
+2. Start Grafana-server. Login to Grafana: admin/admin. Goto Grafana web interface and add a datasource linked to influxdb "jvision" on port 8086. i.e https://127.0.0.1:8086 with database: jvision, User: root, Password: root
 
 ```
 $ sudo service grafana-server start
@@ -98,4 +98,32 @@ $ kapacitor define -name jvision_now -type stream -tick jvision.tick -dbrp jvisi
 $ kapacitor enable jvision_now
 $ kapacitor show jvision_now
 ```
+
+Install Slack and login to the channel to receive messages.
+
+https://slack.com/downloads
+
+
+## Running the tests
+"Required Jvision_decoder.py to be running and collecting data into log file".
+
+Start srcipt JvisionDecoderToInfluxdb.py to follow log file and display on grafana.
+
+Usage:
+```
+$ python jvision_to_influxreadable.py --help
+usage: jvision_to_influxreadable.py [-h] [--file FILE]
+
+Jvision to InfluxDB writer. Usage $python <jvision_to_influxreadable.py>
+<jvision_log_file.txt>
+
+optional arguments:
+  -h, --help   show this help message and exit
+  --file FILE  jvision decoder log txt_file.txt
+```
+
+###Grafana
+Create graphs on Grafana to query into InfluxDB.
+
+Set refresh time policy to '5s' and zomm into the required graph for better visualisation.
 
