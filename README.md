@@ -58,13 +58,13 @@ $ sudo service influxdb start
 Web interface for influxdb: http://127.0.0.1:8083
 Query: CREATE DATABASE "jvision"
 ```
-2. Goto Grafana web interface on http://127.0.0.1:3000 or http://localhost:3000 and add a datasource linked to influxdb "jvision" on port 8086. i.e https://127.0.0.1:8086 with database: jvision, User: root, Password: root
+2. Start Grafana-server. Goto Grafana web interface and add a datasource linked to influxdb "jvision" on port 8086. i.e https://127.0.0.1:8086 with database: jvision, User: root, Password: root
 
-Source: http://docs.grafana.org/datasources/influxdb/
-
-Note:
+```
+$ sudo service grafana-server start
 Web interface for garafan: http://127.0.0.1:3000
-
+```
+Source: http://docs.grafana.org/datasources/influxdb/
 Communication to influxdb (reading and writing): http://127.0.0.1:8086
 
-2. 
+3. 
