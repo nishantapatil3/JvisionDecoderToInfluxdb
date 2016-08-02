@@ -7,4 +7,5 @@ This project is a telemetry service made for real time metrics analysis of Jvisi
 GRPC-server are configured to communicate by a global standard protocol called GPB(Google protocol buffer) that defines communication in OpenConfig format.
 
 Know more about OpenConfig: http://www.openconfig.net/
+
 Know more about GBP:        https://developers.google.com/protocol-buffers/
