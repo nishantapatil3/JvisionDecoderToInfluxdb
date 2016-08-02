@@ -17,6 +17,8 @@ Ex: jvision_port_2000.txt, jvision_port_3002.txt, jvision_port_9000.txt
 #JvsionDecoderToInfluxdb.py
 Inorder to visualize JvisionDecoder logs on a graph metrics. Grafana-InfluxDB framework is used. Grafana is a Metrics, Analytics, dashboards and monitoring tool, when this is used along with Influx Database(Time-series data storage) we can diplay a live monitoring tool for Jvision-QFX.
 
+This script writes Openconfig Jvision logs to InfluxDatabase serially. The script uses a follow code to check new changes to the log file and dump it into database, which gives user a real time analysis output. (The script is made to read one line above the current line to eliminate any incomplete log line)
+
 (More info: http://grafana.org/ https://influxdata.com/time-series-platform/influxdb/)
 
 ### Prerequisities
