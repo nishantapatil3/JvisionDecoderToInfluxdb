@@ -8,7 +8,7 @@ GRPC-server are configured to communicate by a global standard protocol called G
 
 Know more about OpenConfig: http://www.openconfig.net/
 
-Know more about GBP:        https://developers.google.com/protocol-buffers/
+Know more about GPB:        https://developers.google.com/protocol-buffers/
 
 ##JvisionDecoder
 JvisionDecoder is a GRPC-client that collects streaming data from QFX-servers and serializes structured data. Writes the collected data into a log with port number being listened to.
