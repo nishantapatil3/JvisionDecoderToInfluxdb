@@ -71,9 +71,31 @@ Source: http://docs.grafana.org/datasources/influxdb/
 
 Communication to influxdb (reading and writing): http://127.0.0.1:8086
 
-3. (Optional) Start Kapacitor. and follow bellow instaructions.
+3. (Optional) Start Kapacitor. and follow bellow instructions.
 Run the following command to create a default configuration file:
 ```
 kapacitord config > kapacitor.conf
 ```
-Edit kapacitor.conf in /bin/
+Edit kapacitor.conf and uncomment slack configuation and add new incoming web hook
+
+Send the alert to Slack. To allow Kapacitor to post to Slack, go to the URL https://slack.com/services/new/incoming-webhook and create a new incoming webhook and place the generated URL in the 'slack' configuration section. Example:
+
+```
+[slack]
+  enabled = true
+    url = "https://hooks.slack.com/services/xxxxxxxxx/xxxxxxxxx/xxxxxxxxxxxxxxxxxxxxxxxx"
+    channel = "#general"
+```
+
+include jvision.tick script(source code in the repo) and run kapacitor with the config file.
+```
+kapacitord -config kapacitor.conf
+```
+
+Configure kapacitor with jvision.tick script: (jvision_now is kapacitor instance )
+```
+$ kapacitor define -name jvision_now -type stream -tick jvision.tick -dbrp jvision.awesome_policy
+$ kapacitor enable jvision_now
+$ kapacitor show jvision_now
+```
+
