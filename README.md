@@ -183,13 +183,6 @@ TICK script lambda expressions: https://docs.influxdata.com/kapacitor/v0.13/tick
 
 ![Alt text](/results/Slack.PNG?raw=true "Slack app")
 
-## Deployment - Docker
-
-Docker container to deploy this on a live system.
-```
-
-```
-
 ## Built With
 * Python2.7
 * Grafana
