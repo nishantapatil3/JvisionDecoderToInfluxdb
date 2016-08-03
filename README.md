@@ -172,7 +172,7 @@ Add in multiple graphs and queries for multi-visualization.
 
 Adding graphs in Grafana: http://docs.grafana.org/guides/gettingstarted/
 
-![Alt text](/results/Grafana.png?raw=true "Grafana")
+![Alt text](/results/Grafana.PNG?raw=true "Grafana")
 
 ###Kapacitor
 Edit jvision.tick to set required boundaries to monitor parameters and alert when the conditions does not meet the requirements. For example when the normal operation of the server is stalled or slows down below a normal operating range like. if tx_pps < 850000 warn message.
@@ -181,7 +181,7 @@ Note: Kapacitor uses TICK script. Use "lambda:" formulae to add watch algorithms
 
 TICK script lambda expressions: https://docs.influxdata.com/kapacitor/v0.13/tick/expr/
 
-![Alt text](/JvisionDecoderToInfluxdb/results/Slack.PNG?raw=true "Slack app")
+![Alt text](/results/Slack.PNG?raw=true "Slack app")
 
 ## Deployment - Docker
 
