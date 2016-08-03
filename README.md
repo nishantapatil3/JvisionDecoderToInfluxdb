@@ -2,7 +2,7 @@
 Jvision OpenConfig decoder to InfluxDB writer Interfaced with Grafana as Analytics Collector
 
 ## Getting Started
-This project is a telemetry service made for real time metrics analysis of Jvision-QFX servers. These servers run a GRPC(General Remote Procedure Calling)-server program that collects metrics and forwards to its subscribed GRPC-clients.
+This project is a telemetry service made for real time metric analysis of Jvision-QFX servers. These servers run a GRPC(General Remote Procedure Calling)-server program that collects metrics and forwards it to its subscribed GRPC-clients.
 
 GRPC-server are configured to communicate by a global standard protocol called GPB(Google protocol buffer) that defines communication in OpenConfig format.
 
@@ -11,22 +11,42 @@ Know more about OpenConfig: http://www.openconfig.net/
 Know more about GPB:        https://developers.google.com/protocol-buffers/
 
 ##JvisionDecoder
-JvisionDecoder is a GRPC-client that collects streaming data from QFX-servers and serializes structured data. Writes the collected data into a log with port number being listened to.
+JvisionDecoder is a GRPC-client that collects streaming data from QFX-servers and serializes structured data. Writes the collected data into a log file on the port number being listened to.
 Ex: jvision_port_2000.txt, jvision_port_3002.txt, jvision_port_9000.txt
 
 #JvsionDecoderToInfluxdb.py
-Inorder to visualize JvisionDecoder logs on a graph metrics. Grafana-InfluxDB framework is used. Grafana is a Metrics, Analytics, dashboards and monitoring tool, when this is used along with Influx Database(Time-series data storage) we can diplay a live monitoring tool for Jvision-QFX.
+Inorder to visualize JvisionDecoder logs on a graph metrics. The framework used is Grafana-InfluxDB. Grafana is a Metrics, Analytics, dashboards and monitoring tool, when this is used along with Influx Database(Time-series data storage) we can diplay a live monitoring tool for Jvision-QFX.
 
-This script writes Openconfig Jvision logs to InfluxDatabase serially. The script uses a follow code to check new changes to the log file and dump it into database, which gives user a real time analysis output. (The script is made to read one line above the current line to eliminate any incomplete log line)
+JvsionDecoderToInfluxdb.py script writes Openconfig Jvision logs to InfluxDatabase serially. The script uses a follow code to check new changes to the log file and dumps it into database, which gives user a real time analysis output. (The script is made to read one line above the current line to eliminate any incomplete log line).
 
 (More info: http://grafana.org/ https://influxdata.com/time-series-platform/influxdb/)
 
 ### Installing
-All commands are used on  DEB (Ubuntu / Debian 64bit) OS. If you are using a different system please goto Grafana and InfluxDB homepage and follow the instructions.
+All commands are used on  DEB (Ubuntu / Debian 64bit) OS. If you are using a different system please goto Grafana and InfluxDB homepage and follow the instructions for specific environment.
 
-What things you need to install the software and how to install them
+What things you need to install the software and how to install them.
 
 Python2.7 (Skip if already installed)
+```
+$ sudo apt-get install build-essential checkinstall
+$ sudo apt-get install libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev
+```
+Then download using the following command:
+```
+cd ~/Downloads/
+wget http://python.org/ftp/python/2.7.5/Python-2.7.5.tgz
+```
+Extract and go to the dirctory:
+```
+tar -xvf Python-2.7.5.tgz
+cd Python-2.7.5
+```
+Now, install using the command you just tried:
+```
+./configure
+make
+sudo checkinstall
+```
 
 Grafana
 ```
@@ -42,6 +62,7 @@ $ sudo dpkg -i influxdb_0.13.0_amd64.deb
 ```
 
 Kapacitor (Optional)
+
 For Time-Series Data Processing, Alerting And Anomaly Detection install Kapacitor which can be interfaced with Slack Messenger app to get info, warnings and critical updates via channel stream broadcasting.
 
 ```
@@ -52,31 +73,22 @@ $ sudo dpkg -i kapacitor_0.13.1_amd64.deb
 ###Prerequisities
 After Installing Grafana, InfluxDB and Kapacitor. Follow these steps to connect each of the application to form a framework.
 
-1. Start InfluxDB-server. Open a web browser and access web interface for InfluxDB. Create a database in InfluxDB and call it "jvision"
+1. Start InfluxDB-server. Open a web browser and access web interface for InfluxDB http://127.0.0.1:8083. Create a database in InfluxDB and call it "jvision". Query: CREATE DATABASE "jvision"
 ```
 $ sudo service influxdb start
 ```
-Web interface for influxdb: http://127.0.0.1:8083
 
-Query: CREATE DATABASE "jvision"
-
-2. Start Grafana-server. Login to Grafana: admin/admin. Goto Grafana web interface and add a datasource linked to influxdb "jvision" on port 8086. i.e https://127.0.0.1:8086 with database: jvision, User: root, Password: root
-
+2. Start Grafana-server. Open a web browser and access web interface for InfluxDB http://127.0.0.1:3000. Login to Grafana: admin/admin. Goto Grafana web interface and add a datasource linked to influxdb "jvision" on port 8086. i.e https://127.0.0.1:8086 with database: jvision, User: root, Password: root
 ```
 $ sudo service grafana-server start
 ```
-Web interface for garafan: http://127.0.0.1:3000
 
-Source: http://docs.grafana.org/datasources/influxdb/
-
-Communication to influxdb (reading and writing): http://127.0.0.1:8086
-
-3. (Optional) Start Kapacitor. and follow bellow instructions.
+3. (Optional) Start Kapacitor. and follow below instructions.
 Run the following command to create a default configuration file:
 ```
 kapacitord config > kapacitor.conf
 ```
-Edit kapacitor.conf and uncomment slack configuation and add new incoming web hook
+Edit kapacitor.conf and uncomment slack configuation and add new incoming web hook.
 
 Send the alert to Slack. To allow Kapacitor to post to Slack, go to the URL https://slack.com/services/new/incoming-webhook and create a new incoming webhook and place the generated URL in the 'slack' configuration section. Example:
 
@@ -99,10 +111,7 @@ $ kapacitor enable jvision_now
 $ kapacitor show jvision_now
 ```
 
-Install Slack and login to the channel to receive messages.
-
-https://slack.com/downloads
-
+Install Slack(https://slack.com/downloads) and login to the channel to receive messages.
 
 ## Running the script
 "Required Jvision_decoder.py to be running and collecting data into log file".
@@ -161,10 +170,12 @@ Create graphs on Grafana to query into InfluxDB.
 Set refresh time policy to '5s' and zoom into the required graph for better visualisation.
 Add in multiple graphs and queries for multi-visualization.
 
-###Kapacitor
-Edit jvision.tick to set required boundaries to monitor parameters and alert when the conditions does not meet the normal operation of the server.
+Adding graphs in Grafana: http://docs.grafana.org/guides/gettingstarted/
 
-Update: Kapacitor uses TICK script. Use "lambda:" formulae to add watch algorithms to monitor and report depending on the algorithm.
+###Kapacitor
+Edit jvision.tick to set required boundaries to monitor parameters and alert when the conditions does not meet the requirements. For example when the normal operation of the server is stalled or slows down below a normal operating range like. if tx_pps < 850000 warn message.
+
+Note: Kapacitor uses TICK script. Use "lambda:" formulae to add watch algorithms to monitor and report info depending on the algorithm.
 
 TICK script lambda expressions: https://docs.influxdata.com/kapacitor/v0.13/tick/expr/
 
@@ -176,12 +187,14 @@ Docker container to deploy this on a live system.
 ```
 
 ## Built With
-* Dropwizard - Bla bla bla
-* Maven - Maybe
-* Atom - ergaerga
+* Python2.7
+* Grafana
+* InfluxDB
+* Kapacitor
+* Slack Messenger
 
 ## Contributing
-Any contribution to the repo is highly appreciated.
+Any contribution, Pull requests or Cloning is highly appreciated. 
 
 ## Versioning
 Initial Verision
