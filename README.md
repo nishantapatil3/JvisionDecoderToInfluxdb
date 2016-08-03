@@ -191,7 +191,7 @@ TICK script lambda expressions: https://docs.influxdata.com/kapacitor/v0.13/tick
 * Slack Messenger
 
 ## Contributing
-Any contribution, Pull requests or Cloning is highly appreciated. 
+Any contribution is appreciated. 
 
 ## Versioning
 Initial Verision
