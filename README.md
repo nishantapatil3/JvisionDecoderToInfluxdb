@@ -174,6 +174,8 @@ Adding graphs in Grafana: http://docs.grafana.org/guides/gettingstarted/
 
 ![Alt text](/results/Grafana.PNG?raw=true "Grafana")
 
+![Alt text](/results/grafana2.PNG?raw=true "Grafana")
+
 ###Kapacitor
 Edit jvision.tick to set required boundaries to monitor parameters and alert when the conditions does not meet the requirements. For example when the normal operation of the server is stalled or slows down below a normal operating range like. if tx_pps < 850000 warn message.
 
