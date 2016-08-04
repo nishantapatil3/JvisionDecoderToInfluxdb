@@ -174,7 +174,16 @@ Adding graphs in Grafana: http://docs.grafana.org/guides/gettingstarted/
 
 ![Alt text](/results/Grafana.PNG?raw=true "Grafana")
 
-![Alt text](/results/grafana2.PNG?raw=true "Grafana")
+![Alt text](/results/grafana2.PNG?raw=true "Grafana2")
+
+###InfluxDB
+Goto InfluxDB web interface: https://127.0.0.1:8083. Select database jvision and Query:
+SHOW MEASUREMENTS - Display list of servers
+SELECT * FROM <MEASUREMENT> - Display all key-value pair of <MEASUREMENT> server
+SHOW FIELD KEYS - Display only field keys
+SHOW TAG KEYS - Display only tag keys
+
+![Alt text](/results/InfluxDB.PNG?raw=true "InfluxDB")
 
 ###Kapacitor
 Edit jvision.tick to set required boundaries to monitor parameters and alert when the conditions does not meet the requirements. For example when the normal operation of the server is stalled or slows down below a normal operating range like. if tx_pps < 850000 warn message.
