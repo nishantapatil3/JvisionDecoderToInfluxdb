@@ -11,7 +11,8 @@ Know more about OpenConfig: http://www.openconfig.net/
 Know more about GPB:        https://developers.google.com/protocol-buffers/
 
 ##JvisionDecoder
-JvisionDecoder is a GRPC-client that collects streaming data from QFX-servers and serializes structured data. Writes the collected data into a log file on the port number being listened to.
+JvisionDecoder is a GRPC-client that collects streaming data from QFX-servers and serializes structured data then Writes the collected data into a log file on the port number being listened to.
+
 Ex: jvision_port_2000.txt, jvision_port_3002.txt, jvision_port_9000.txt
 
 #JvsionDecoderToInfluxdb.py
