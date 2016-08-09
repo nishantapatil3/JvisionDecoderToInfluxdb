@@ -1,6 +1,13 @@
 # JvisionDecoderToInfluxdb
 Jvision OpenConfig decoder to InfluxDB writer Interfaced with Grafana as Analytics Collector
 
+##Why is Data Analytics important?
+Data analytics helps organizations harness their data and use it to identify new opportunities. That, in turn, leads to smarter business moves, more efficient operations, higher profits and happier customers.
+
+Network Data analytics plays an important role many areas of network management, like, performance tuning, Load balancing, predicting buffer requirements, setting up crach backup threshold, monitoring traffic for anomalous patterns, etc.
+
+Juniper QFX10008 suites network requirements of a data center core switch. 
+
 ## Getting Started
 This project is a telemetry service made for real time metric analysis of Jvision-QFX servers. These servers run a GRPC(General Remote Procedure Calling)-server program that collects metrics and forwards it to its subscribed GRPC-clients.
 
@@ -16,14 +23,14 @@ JvisionDecoder is a GRPC-client that collects streaming data from QFX-servers an
 Ex: jvision_port_2000.txt, jvision_port_3002.txt, jvision_port_9000.txt
 
 #JvsionDecoderToInfluxdb.py
-Inorder to visualize JvisionDecoder logs on a graph metrics. The framework used is Grafana-InfluxDB. Grafana is a Metrics, Analytics, dashboards and monitoring tool, when this is used along with Influx Database(Time-series data storage) we can diplay a live monitoring tool for Jvision-QFX.
+In order to visualize JvisionDecoder logs on a graph metrics. The framework used is Grafana-InfluxDB. Grafana is a Metrics, Analytics, dashboards and monitoring tool, when this is used along with Influx Database(Time-series data storage) we can display a live monitoring tool for Jvision-QFX.
 
 JvsionDecoderToInfluxdb.py script writes Openconfig Jvision logs to InfluxDatabase serially. The script uses a follow code to check new changes to the log file and dumps it into database, which gives user a real time analysis output. (The script is made to read one line above the current line to eliminate any incomplete log line).
 
 (More info: http://grafana.org/ https://influxdata.com/time-series-platform/influxdb/)
 
 ### Installing
-All commands are used on  DEB (Ubuntu / Debian 64bit) OS. If you are using a different system please goto Grafana and InfluxDB homepage and follow the instructions for specific environment.
+All commands are used on  DEB (Ubuntu / Debian 64bit) OS. If you are using a different system, please go to Grafana and InfluxDB homepage and follow the instructions for specific environment.
 
 What things you need to install the software and how to install them.
 
@@ -64,14 +71,14 @@ $ sudo dpkg -i influxdb_0.13.0_amd64.deb
 
 Kapacitor (Optional)
 
-For Time-Series Data Processing, Alerting And Anomaly Detection install Kapacitor which can be interfaced with Slack Messenger app to get info, warnings and critical updates via channel stream broadcasting.
+For Time-Series Data Processing, Alerting and Anomaly Detection install Kapacitor which can be interfaced with Slack Messenger app to get info, warnings and critical updates via channel stream broadcasting.
 
 ```
 $ wget https://dl.influxdata.com/kapacitor/releases/kapacitor_0.13.1_amd64.deb
 $ sudo dpkg -i kapacitor_0.13.1_amd64.deb
 ```
 
-###Prerequisities
+###Prerequisites
 After Installing Grafana, InfluxDB and Kapacitor. Follow these steps to connect each of the application to form a framework.
 
 1. Start InfluxDB-server. Open a web browser and access web interface for InfluxDB http://127.0.0.1:8083. Create a database in InfluxDB and call it "jvision". Query: CREATE DATABASE "jvision"
@@ -89,7 +96,7 @@ Run the following command to create a default configuration file:
 ```
 kapacitord config > kapacitor.conf
 ```
-Edit kapacitor.conf and uncomment slack configuation and add new incoming web hook.
+Edit kapacitor.conf and uncomment slack configuration and add new incoming web hook.
 
 Send the alert to Slack. To allow Kapacitor to post to Slack, go to the URL https://slack.com/services/new/incoming-webhook and create a new incoming webhook and place the generated URL in the 'slack' configuration section. Example:
 
@@ -168,7 +175,7 @@ True
 ###Grafana
 Create graphs on Grafana to query into InfluxDB.
 
-Set refresh time policy to '5s' and zoom into the required graph for better visualisation.
+Set refresh time policy to '5s' and zoom into the required graph for better visualization.
 Add in multiple graphs and queries for multi-visualization.
 
 Adding graphs in Grafana: http://docs.grafana.org/guides/gettingstarted/
@@ -206,7 +213,7 @@ TICK script lambda expressions: https://docs.influxdata.com/kapacitor/v0.13/tick
 Any contribution is appreciated. 
 
 ## Versioning
-Initial Verision
+Initial Version
 
 ## Authors
 * **Nishant Patil** - *Initial work*
