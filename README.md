@@ -2,13 +2,18 @@
 Jvision OpenConfig decoder to InfluxDB writer Interfaced with Grafana as Analytics Collector
 
 ##Why is Data Analytics important?
-Data analytics helps organizations harness their data and use it to identify new opportunities. That, in turn, leads to smarter business moves, more efficient operations, higher profits and happier customers.
+Data analytics helps organizations harness their data and use it to identify new opportunities. That, in turn, leads to smarter business moves, more efficient operations, higher profits and happier customers. Good analysis should tell this story with actionable results (both short- and long-term) to improve performance and drive your business forward. Not only should it provide insights and optimizations based on historical findings, but it should also use trends to predict what will happen in the future.
 
-Network Data analytics plays an important role many areas of network management, like, performance tuning, Load balancing, predicting buffer requirements, setting up crach backup threshold, monitoring traffic for anomalous patterns, etc.
+Network Data analytics plays an important role in many areas of networking management, like, performance tuning, server load balancing, predicting buffer requirements, setting up crach backup threshold, monitoring traffic for anomalous patterns, etc.
 
-Juniper QFX10008 suites network requirements of a data center core switch. 
+Juniper QFX10008 suites network requirements of a data center core switch. QFX gives L2 and L3 level network information of data traffic in real-time. This information is used to find preformance tuning requirements for the network.
 
-## Getting Started
+This project aims to visualize network telemetry of QFX10008 using open source components. The framework is made easy to understand and modify.
+
+## Confuguring QFX for telemetry
+----------------------------------------------
+
+##Getting Started
 This project is a telemetry service made for real time metric analysis of Jvision-QFX servers. These servers run a GRPC(General Remote Procedure Calling)-server program that collects metrics and forwards it to its subscribed GRPC-clients.
 
 GRPC-server are configured to communicate by a global standard protocol called GPB(Google protocol buffer) that defines communication in OpenConfig format.
@@ -214,6 +219,10 @@ Any contribution is appreciated.
 
 ## Versioning
 Initial Version
+
+## Future improvements
+* To implement the entire framework on a docker containers for easy portability.
+* Using the big data analysis to come up with a performance tuning metrics using machine learning algorithm.
 
 ## Authors
 * **Nishant Patil** - *Initial work*
