@@ -212,7 +212,7 @@ select rx_pps from valinch02_qfx10008_01 where "interface"='et-1/0/22'
 ![Alt text](/results/InfluxDB.PNG?raw=true "InfluxDB")
 
 ###Kapacitor
-Edit jvision.tick to set required boundaries to monitor parameters and alert when the conditions does not meet the requirements. For example when the normal operation of the server is stalled or slows down below a normal operating range like. if tx_pps < 850000 warn message.
+Edit jvision.tick to set required boundaries to monitor parameters and alert when the conditions does not meet the requirements. For example when the normal operation of the server is stalled or slows down below a normal operating range like. if tx_pps > 800000 critical message.
 
 Note: Kapacitor uses TICK script. Use "lambda:" formulae to add watch algorithms to monitor and report info depending on the algorithm.
 
