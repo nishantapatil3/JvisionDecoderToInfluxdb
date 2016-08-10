@@ -194,11 +194,20 @@ Adding graphs in Grafana: http://docs.grafana.org/guides/gettingstarted/
 ![Alt text](/results/grafana2.PNG?raw=true "Grafana2")
 
 ###InfluxDB
-Goto InfluxDB web interface: https://127.0.0.1:8083. Select database jvision and Query:
+Goto InfluxDB web interface: https://127.0.0.1:8083. 
+
+Select database jvision and Query:
+
+'''
 SHOW MEASUREMENTS - Display list of servers
 SELECT * FROM <MEASUREMENT> - Display all key-value pair of <MEASUREMENT> server
 SHOW FIELD KEYS - Display only field keys
 SHOW TAG KEYS - Display only tag keys
+
+Ex queries:
+select rx_bps FROM "valinch02_qfx10008_01" where "interface"='xe-1/0/33:3' and "component_id"='1'
+select rx_pps from valinch02_qfx10008_01 where "interface"='et-1/0/22'
+'''
 
 ![Alt text](/results/InfluxDB.PNG?raw=true "InfluxDB")
 
