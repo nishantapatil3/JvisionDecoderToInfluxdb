@@ -1,7 +1,7 @@
 # JvisionDecoderToInfluxdb
 Jvision OpenConfig decoder to InfluxDB writer Interfaced with Grafana as Analytics Collector
 
-##Why is Data Analytics important?
+##Why data analytics is important?
 Data analytics helps organizations harness their data and use it to identify new opportunities. That, in turn, leads to smarter business moves, more efficient operations, higher profits and happier customers. Good analysis tells this story with actionable results (both short and long-term) to improve performance and drive business forward. Not only should it provide insights and optimizations based on historical findings, but it should also use trends to predict what will happen in the future.
 
 Network Data analytics plays an important role in many areas of networking management, like, performance tuning, server load balancing, predicting buffer requirements, setting up crach backup threshold, monitoring traffic for anomalous patterns, etc.
