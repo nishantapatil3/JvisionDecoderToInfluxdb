@@ -10,7 +10,7 @@ QFX10008 switches form a highly scalable, high-density network foundation for su
 
 This project aims to visualize network telemetry metrics of QFX10008 using open source components. The framework is made easy to understand and modify.
 
-There CLI
+Juniper Telemetry Interface(JTI) can send network metrics by CLI(Command Line Interface) method or by Programmatic method (gRPC - general Remote Procedure Calling). For this project we are concentrating on CLI method of collecting network metrics.
 
 ##Getting Started
 QFX servers run a GRPC(General Remote Procedure Calling)-server program that collects metrics and forwards it to its subscribed GRPC-clients.
