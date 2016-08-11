@@ -87,7 +87,7 @@ $ wget https://dl.influxdata.com/kapacitor/releases/kapacitor_0.13.1_amd64.deb
 $ sudo dpkg -i kapacitor_0.13.1_amd64.deb
 ```
 
-###Prerequisites
+###Prerequisite configurations
 After Installing Grafana, InfluxDB and Kapacitor. Follow these steps to connect each of the application to form a framework.
 
 1. Start InfluxDB-server. Open a web browser and access web interface for InfluxDB http://127.0.0.1:8083. Create a database in InfluxDB and call it "jvision". Query: CREATE DATABASE "jvision"
