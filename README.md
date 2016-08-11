@@ -11,12 +11,14 @@ QFX10008 switches form a highly scalable, high-density network foundation for su
 This project aims to visualize network telemetry metrics of QFX10008 using open source components. The framework is made easy to understand and modify.
 
 Juniper Telemetry Interface(JTI) can send network metrics by CLI(Command Line Interface) method or by Programmatic method (gRPC - general Remote Procedure Calling). For this project we are concentrating on CLI method of collecting network metrics.
+
 ![Alt text](/images/1.jpg?raw=true "QFX10008 NTI")
 
 ##Getting Started
 QFX servers run a GRPC(General Remote Procedure Calling)-server program that collects metrics and forwards it to its subscribed GRPC-clients.
 
 GRPC-server are configured to communicate by a global standard protocol called GPB(Google protocol buffer) that defines communication in OpenConfig format.
+
 ![Alt text](/images/2.jpg?raw=true "Streaming Data")
 
 Know more about OpenConfig: http://www.openconfig.net/
@@ -32,6 +34,7 @@ Ex: jvision_port_2000.txt, jvision_port_3002.txt, jvision_port_9000.txt
 In order to visualize JvisionDecoder logs on a graph metrics. The framework used is Grafana-InfluxDB. Grafana is a Metrics, Analytics, dashboards and monitoring tool, when this is used along with Influx Database(Time-series data storage) we can display a live monitoring tool for Jvision-QFX.
 
 ![Alt text](/images/3.jpg?raw=true "OC Data")
+
 ![Alt text](/images/4.jpg?raw=true "Framework")
 
 JvsionDecoderToInfluxdb.py script writes Openconfig Jvision logs to InfluxDatabase serially. The script uses a follow code to check new changes to the log file and dumps it into database, which gives user a real time analysis output. (The script is made to read one line above the current line to eliminate any incomplete log line).
