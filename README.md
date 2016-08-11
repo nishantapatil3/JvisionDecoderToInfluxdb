@@ -230,9 +230,6 @@ TICK script lambda expressions: https://docs.influxdata.com/kapacitor/v0.13/tick
 * Kapacitor
 * Slack Messenger
 
-## Versioning
-Initial Version
-
 ## Future improvements
 * To implement the entire framework on a docker containers for easy portability.
 * Using the big data analysis to come up with a performance tuning metrics using machine learning algorithm.
