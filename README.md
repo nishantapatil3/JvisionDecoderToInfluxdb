@@ -230,9 +230,6 @@ TICK script lambda expressions: https://docs.influxdata.com/kapacitor/v0.13/tick
 * Kapacitor
 * Slack Messenger
 
-## Contributing
-Any contribution is appreciated. 
-
 ## Versioning
 Initial Version
 
