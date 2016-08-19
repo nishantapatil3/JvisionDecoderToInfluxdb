@@ -1,35 +1,3 @@
-# JvisionDecoderToInfluxdb
-Jvision OpenConfig decoder to InfluxDB writer Interfaced with Grafana as Analytics Collector
-
-##Why data analytics is important?
-Data analytics helps organizations harness their data and use it to identify new opportunities. That, in turn, leads to smarter business moves, more efficient operations, higher profits and happier customers. Good analysis tells this story with actionable results (both short and long-term) to improve performance and drive business forward. Not only should it provide insights and optimizations based on historical findings, but it should also use trends to predict what will happen in the future.
-
-Network Data analytics plays an important role in many areas of networking management, like, performance tuning, server load balancing, predicting buffer requirements, setting up crach backup threshold, monitoring traffic for anomalous patterns, etc.
-
-QFX10008 switches form a highly scalable, high-density network foundation for supporting today’s most demanding data center and cloud environments. The switch provides analytical insight into L2 and L3 statistics of real time traffic. This information is used for performance tuning of the network.
-
-This project aims to visualize network telemetry metrics of QFX10008 using open source components. The framework is made easy to understand and modify.
-
-Juniper Telemetry Interface(JTI) can send network metrics by CLI(Command Line Interface) method or by Programmatic method (gRPC - general Remote Procedure Calling). For this project we are concentrating on CLI method of collecting network metrics.
-
-![Alt text](/images/1.jpg?raw=true "QFX10008 NTI")
-
-##Getting Started
-QFX servers run a GRPC(General Remote Procedure Calling)-server program that collects metrics and forwards it to its subscribed GRPC-clients.
-
-GRPC-server are configured to communicate by a global standard protocol called GPB(Google protocol buffer) that defines communication in OpenConfig format.
-
-![Alt text](/images/2.jpg?raw=true "Streaming Data")
-
-Know more about OpenConfig: http://www.openconfig.net/
-
-Know more about GPB:        https://developers.google.com/protocol-buffers/
-
-##JvisionDecoder
-JvisionDecoder is application that collects streaming data from QFX-switches and serializes structured data, then writes the collected data into a log file on the port number being listened to.
-
-Ex: jvision_port_2000.txt, jvision_port_3002.txt, jvision_port_9000.txt
-
 #JvsionDecoderToInfluxdb.py
 In order to visualize JvisionDecoder logs on a graph metrics. The framework used is Grafana-InfluxDB. Grafana is a Metrics, Analytics, dashboards and monitoring tool, when this is used along with Influx Database(Time-series data storage) we can display a live monitoring tool for Jvision-QFX.
 
