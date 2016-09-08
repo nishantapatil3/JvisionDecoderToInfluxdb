@@ -1,8 +1,6 @@
 #JvsionDecoderToInfluxdb.py
 In order to visualize JvisionDecoder logs on a graph metrics. The framework used is Grafana-InfluxDB. Grafana is a Metrics, Analytics, dashboards and monitoring tool, when this is used along with Influx Database(Time-series data storage) we can display a live monitoring tool for Jvision-QFX.
 
-![Alt text](/images/3.jpg?raw=true "OC Data")
-
 ![Alt text](/images/4.jpg?raw=true "Framework")
 
 JvsionDecoderToInfluxdb.py script writes Openconfig Jvision logs to InfluxDatabase serially. The script uses a follow code to check new changes to the log file and dumps it into database, which gives user a real time analysis output. (The script is made to read one line above the current line to eliminate any incomplete log line).
@@ -160,10 +158,6 @@ Add in multiple graphs and queries for multi-visualization.
 
 Adding graphs in Grafana: http://docs.grafana.org/guides/gettingstarted/
 
-![Alt text](/results/Grafana.PNG?raw=true "Grafana")
-
-![Alt text](/results/grafana2.PNG?raw=true "Grafana2")
-
 ###InfluxDB
 Goto InfluxDB web interface: https://127.0.0.1:8083. 
 
@@ -174,13 +168,7 @@ SHOW MEASUREMENTS - Display list of servers
 SELECT * FROM <MEASUREMENT> - Display all key-value pair of <MEASUREMENT> server
 SHOW FIELD KEYS - Display only field keys
 SHOW TAG KEYS - Display only tag keys
-
-Ex queries:
-select rx_bps FROM "valinch02_qfx10008_01" where "interface"='xe-1/0/33:3' and "component_id"='1'
-select rx_pps from valinch02_qfx10008_01 where "interface"='et-1/0/22'
 ```
-
-![Alt text](/results/InfluxDB.PNG?raw=true "InfluxDB")
 
 ###Kapacitor
 Edit jvision.tick to set required boundaries to monitor parameters and alert when the conditions does not meet the requirements. For example when the normal operation of the server is stalled or slows down below a normal operating range like. if tx_pps > 800000 raise critical message.
@@ -188,8 +176,6 @@ Edit jvision.tick to set required boundaries to monitor parameters and alert whe
 Note: Kapacitor uses TICK script. Use "lambda:" formulae to add watch algorithms to monitor and report info depending on the algorithm.
 
 TICK script lambda expressions: https://docs.influxdata.com/kapacitor/v0.13/tick/expr/
-
-![Alt text](/results/Slack.PNG?raw=true "Slack app")
 
 ## Built With
 * Python2.7
